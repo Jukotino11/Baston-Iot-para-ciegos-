@@ -9,6 +9,7 @@ import androidx.appcompat.app.AppCompatActivity
 import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Locale
+import android.content.Intent
 
 class MainActivity : AppCompatActivity() {
 
@@ -29,6 +30,20 @@ class MainActivity : AppCompatActivity() {
         // Evento del Botón: Simula la recepción de la alerta desde el Arduino
         btnSimular.setOnClickListener {
             guardarAlertaInactividad()
+        }
+
+        // Referencia al nuevo botón de cerrar sesión
+        val btnCerrarSesion = findViewById<Button>(R.id.btnCerrarSesion)
+
+        btnCerrarSesion.setOnClickListener {
+            // Creamos el Intent para volver al Login
+            val intent = Intent(this, LoginActivity::class.java)
+
+            // Estas banderas borran el historial de pantallas para que al dar "Atrás" el usuario no vuelva al panel
+            intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+
+            startActivity(intent)
+            finish()
         }
     }
 
