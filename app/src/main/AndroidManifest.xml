@@ -18,7 +18,7 @@
             </intent-filter>
         </activity>
 
-        <!-- Esta es la segunda pantalla (Tu panel de monitoreo y alertas) -->
+
         <activity android:name=".MainActivity" android:exported="false" />
     </application>
 
